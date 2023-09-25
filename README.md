@@ -1,2 +1,3 @@
-# crop-quest
-H446-03
+# Crop Quest
+
+A game made for A-level Computer Science.
