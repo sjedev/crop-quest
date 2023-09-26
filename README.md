@@ -1,3 +1,3 @@
 # Crop Quest
 
-A game made for A-level Computer Science.
+Farming RPG for H446
