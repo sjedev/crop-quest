@@ -22,16 +22,29 @@ let margin_x;
 let margin_y;
 
 // Preload assets before setup
-function preload () {
+function preload() {
     spritesheet_tiles = loadImage("resources/spritesheets/tiles_v2.png");
 }
 
 // Create canvas, fetch JSON, push tiles
-async function setup () {
-    
+async function setup() {
+    createCanvas(windowWidth, windowHeight);
+    tile_size_setup();
+
+    background(255);
+
+    push_tiles(player_level);
 }
 
 // Draw tiles and graphics on canvas
-function draw () {
+function draw() {
+    // Draw background tiles
+    for (i in tiles_back) {
+        tiles_back[i].show();
+    }
 
+    // Draw foreground tiles
+    for (i in tiles_fore) {
+        tiles_fore[i].show();
+    }
 }

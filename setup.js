@@ -1,4 +1,4 @@
-function tile_size_setup () {
+function tile_size_setup() {
     let minimum_width = tiles_x * 64; // 64 is the default tile size
 
     if (windowWidth < minimum_width) {
@@ -16,17 +16,17 @@ function tile_size_setup () {
     }
 }
 
-async function fetch_JSON (file) {
+async function fetch_JSON(file) {
     // Fetches and returns the named file; throws an error if it fails
     return fetch(file).then(response => response.json()).catch(error => { console.error(error) });
 }
 
-function push_tiles (push_level) {
+function push_tiles(push_level) {
     // Iterate through tiles on the y-axis
-    for (p = 0; p < level[push_level].height; p ++) {
+    for (p = 0; p < level[push_level].height; p++) {
 
         // Iterate through tiles on the x-axis
-        for (q = 0; q < level[push_level].width; q ++) {
+        for (q = 0; q < level[push_level].width; q++) {
 
             // If the tile is in the foreground
             if (tile[level[push_level].tiles[p][q]].foreground) {
@@ -36,10 +36,10 @@ function push_tiles (push_level) {
 
                 // Add foreground tile to separate array so it is drawn after the avatar
                 tiles_foreground.push(new Tile(level[push_level].tiles[p][q], (q * tile_size), (p * tile_size)));
-        } else {
-            // Add background tile
-            tiles_background.push(new Tile(level[push_level].tiles[p][q], (q * tile_size), (p * tile_size)));
-      }
+            } else {
+                // Add background tile
+                tiles_background.push(new Tile(level[push_level].tiles[p][q], (q * tile_size), (p * tile_size)));
+            }
+        }
     }
-  }
 }
