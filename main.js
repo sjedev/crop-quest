@@ -33,18 +33,22 @@ async function setup() {
 
     background(255);
 
+    // Waits for these files to be loaded before proceeding
+    await fetch_JSON("resources/json/level.json").then(data => {level = data});
+    await fetch_JSON("resources/json/tile.json").then(data => {tile = data});
+
     push_tiles(player_level);
 }
 
 // Draw tiles and graphics on canvas
 function draw() {
     // Draw background tiles
-    for (i in tiles_back) {
+    for (i in tiles_background) {
         tiles_back[i].show();
     }
 
     // Draw foreground tiles
-    for (i in tiles_fore) {
+    for (i in tiles_foreground) {
         tiles_fore[i].show();
     }
 }
