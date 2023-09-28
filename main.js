@@ -44,11 +44,11 @@ async function setup() {
 function draw() {
     // Draw background tiles
     for (i in tiles_background) {
-        tiles_back[i].show();
+        tiles_background[i].show();
     }
 
     // Draw foreground tiles
     for (i in tiles_foreground) {
-        tiles_fore[i].show();
+        tiles_foreground[i].show();
     }
 }
