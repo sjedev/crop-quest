@@ -5,6 +5,6 @@ class Player {
     }
 
     show(){
-        image(spritesheet_avatars, 400, 400, 64, 64);
+        image(spritesheet_avatars, this.x, this.y, 64, 64);
     }
 }
