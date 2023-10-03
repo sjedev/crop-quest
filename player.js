@@ -5,6 +5,6 @@ class Player {
     }
 
     show(){
-        // Pass
+        image(spritesheet_avatars, 400, 400, 64, 64);
     }
 }
