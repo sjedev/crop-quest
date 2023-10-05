@@ -41,7 +41,7 @@ async function setup() {
     background(255);
 
     // Create player
-    user = new Avatar(400, 400);
+    user = new Avatar(2, 2);
 	user_onscreen = true;
 
     // Waits for these files to be loaded before proceeding
