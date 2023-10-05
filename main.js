@@ -29,7 +29,7 @@ let margin_y;
 
 // Preload assets before setup
 function preload() {
-    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v2.png");
+    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v3.png");
     spritesheet_avatars = loadImage("resources/spritesheets/avatars_v1.png");
 }
 
