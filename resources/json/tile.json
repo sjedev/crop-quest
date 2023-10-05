@@ -164,7 +164,7 @@
         "tile_name": "tree_single_green_bottom",
         "spritesheet_x": 192,
         "spritesheet_y": 128,
-        "collisions": false,
+        "collisions": true,
         "foreground": false
     },
     "110": {
