@@ -8,8 +8,9 @@
 let tile, level;
 
 // Player metadata
-let player;
-let player_level = "menu";
+let user;
+let current_level = "menu";
+let user_onscreen = false;
 
 // Tile metadata
 let tile_size;
@@ -40,13 +41,14 @@ async function setup() {
     background(255);
 
     // Create player
-    player = new Player(400, 400);
+    user = new Avatar(400, 400);
+	user_onscreen = true;
 
     // Waits for these files to be loaded before proceeding
     await fetch_JSON("resources/json/level.json").then(data => {level = data});
     await fetch_JSON("resources/json/tile.json").then(data => {tile = data});
 
-    push_tiles(player_level);
+    push_tiles(current_level);
 }
 
 // Draw tiles and graphics on canvas
@@ -57,7 +59,9 @@ function draw() {
     }
 
     // Draw player
-    player.show();
+	if (user_onscreen) {
+		user.show();
+	}
 
     // Draw foreground tiles
     for (i in tiles_foreground) {
