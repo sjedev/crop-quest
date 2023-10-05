@@ -41,7 +41,7 @@ async function setup() {
     background(255);
 
     // Create player
-    user = new Avatar(2, 2);
+    user = new Avatar(9, 4);
 	user_onscreen = true;
 
     // Waits for these files to be loaded before proceeding
@@ -67,4 +67,16 @@ function draw() {
     for (i in tiles_foreground) {
         tiles_foreground[i].show();
     }
+}
+
+function keyPressed() {
+	if (keyCode === LEFT_ARROW) {
+		user.move("LEFT");
+	} else if (keyCode === RIGHT_ARROW) {
+		user.move("RIGHT");
+	} else if (keyCode === UP_ARROW) {
+		user.move("UP");
+	} else if (keyCode === DOWN_ARROW) {
+		user.move("DOWN");
+	}
 }
