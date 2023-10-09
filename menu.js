@@ -1,7 +1,13 @@
 function push_ui(state) {
+	// Remove pre-existing UI elements
+	ui_non_interact = [];
+	ui_interactable = [];
+	ui_fullscreen = false;
 	switch (state) {
 		case "MAINMENU":
+			// Lower third overlay with title and buttons
 			ui_fullscreen = true;
+			ui_non_interact.push(new Overlay("LTHIRD"));
 			ui_non_interact.push(new Title());
 			break;
 	}
@@ -23,4 +29,28 @@ class Title {
     	}
     	text("Crop Quest", (margin_x + tile_size), (margin_y + (tile_size * 11) + 12));
 	}
+}
+
+class Overlay {
+	constructor(type) {
+		this.type = type;
+	}
+
+	show() {
+    	noStroke();
+    	switch (this.type) {
+      		case "LTHIRD":
+        		// Lower third tinted overlay
+		        fill(0, 0, 0, 150);
+		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+		        break;
+      		case "ALL_LTHIRD":
+		        // Full screen with darker lower third
+		        fill(0, 0, 0, 100);
+		        rect(margin_x, margin_y, (tile_size * tiles_x), ((tile_size * tiles_y) - (tile_size * 3)))
+		        fill(0, 0, 0, 150);
+		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+		        break;
+    	}
+  	}
 }
