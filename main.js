@@ -77,9 +77,16 @@ function draw() {
         tiles_foreground[i].show();
     }
 
+	// Draw non-interactable UI elements
 	for (i in ui_non_interact) {
   		ui_non_interact[i].show();
   	}
+
+	// Draw interactable UI elements
+	cursor("default");
+	for (i in ui_interactable) {
+		ui_interactable[i].show()
+	}
 }
 
 function keyPressed() {

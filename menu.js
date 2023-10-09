@@ -9,6 +9,9 @@ function push_ui(state) {
 			ui_fullscreen = true;
 			ui_non_interact.push(new Overlay("LTHIRD"));
 			ui_non_interact.push(new Title());
+			ui_interactable.push(new Button("START", 11, 10, 5));
+			ui_interactable.push(new Button("LOAD", 16.5, 10, 3));
+			ui_interactable.push(new Button("OPTIONS", 20, 10, 3));
 			break;
 	}
 }
@@ -27,6 +30,7 @@ class Title {
     	} else {
       		fill(255);
     	}
+		// Display the title in the bottom left
     	text("Crop Quest", (margin_x + tile_size), (margin_y + (tile_size * 11) + 12));
 	}
 }
@@ -53,4 +57,42 @@ class Overlay {
 		        break;
     	}
   	}
+}
+
+class Button {
+	constructor(action, x, y, length) {
+		this.action = action;
+		this.x = margin_x + (x * tile_size);
+		this.y = margin_y + (y * tile_size);
+		this.length = length * tile_size;
+	}
+
+	show() {
+		// If mouse pointer is hovering over the button
+		if (mouseX >= this.x &&
+			mouseX <= (this.x + this.length) &&
+			mouseY >= this.y &&
+			mouseY <= (this.y + tile_size)) {
+			fill(132, 198, 105);
+			cursor("pointer");
+		} else {
+			fill(255);
+		}
+		rect(this.x, this.y, this.length, tile_size);
+		textSize(Math.floor(0.65 * tile_size));
+		textFont(button_font);
+		fill(63, 38, 49);
+		textAlign(CENTER, TOP)
+		switch (this.action) {
+			case "START":
+				text("New game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "OPTIONS":
+				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "LOAD":
+				text("Load", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+		}
+	}
 }
