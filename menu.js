@@ -95,4 +95,14 @@ class Button {
 				break;
 		}
 	}
+
+	click() {
+		// If mouse pointer is above the buton at the time of the click
+		if (mouseX >= this.x &&
+			mouseX <= (this.x + this.length) &&
+			mouseY >= this.y &&
+			mouseY <= (this.y + tile_size)) {
+			break;
+		}
+	}
 }

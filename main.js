@@ -85,7 +85,7 @@ function draw() {
 	// Draw interactable UI elements
 	cursor("default");
 	for (i in ui_interactable) {
-		ui_interactable[i].show()
+		ui_interactable[i].show();
 	}
 }
 
@@ -102,3 +102,9 @@ function keyPressed() {
 		}
 	}
 }	
+
+function mousePressed() {
+	for (i in ui_interactable) {
+		ui_interactable[i].click();
+	}
+}
