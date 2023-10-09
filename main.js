@@ -20,6 +20,7 @@ let tiles_background = new Array;
 let tiles_foreground = new Array;
 
 // User interface
+let title_font, label_font;
 let ui_fullscreen = false;
 let ui_non_interact = new Array;
 let ui_interactable = new Array;
@@ -34,6 +35,8 @@ let margin_y;
 
 // Preload assets before setup
 function preload() {
+	title_font = loadFont("resources/fonts/blocks.ttf");
+  	button_font = loadFont("resources/fonts/minisquare.ttf");
     spritesheet_tiles = loadImage("resources/spritesheets/tiles_v3.png");
     spritesheet_avatars = loadImage("resources/spritesheets/avatars_v1.png");
 }
