@@ -19,6 +19,11 @@ let tiles_y = 12;
 let tiles_background = new Array;
 let tiles_foreground = new Array;
 
+// User interface
+let ui_fullscreen = false;
+let ui_non_interact = new Array;
+let ui_interactable = new Array;
+
 // Spritesheet locations
 let spritesheet_tiles;
 let spritesheet_avatars;
@@ -58,8 +63,8 @@ function draw() {
         tiles_background[i].show();
     }
 
-    // Draw player
-	if (user_onscreen) {
+    // Draw player and full-screen UI is not displayed
+	if (user_onscreen && !ui_fullscreen) {
 		user.show();
 	}
 
@@ -70,13 +75,15 @@ function draw() {
 }
 
 function keyPressed() {
-	if (keyCode === LEFT_ARROW) {
-		user.move("LEFT");
-	} else if (keyCode === RIGHT_ARROW) {
-		user.move("RIGHT");
-	} else if (keyCode === UP_ARROW) {
-		user.move("UP");
-	} else if (keyCode === DOWN_ARROW) {
-		user.move("DOWN");
+	if (!ui_fullscreen) {
+		if (keyCode === LEFT_ARROW) {
+			user.move("LEFT");
+		} else if (keyCode === RIGHT_ARROW) {
+			user.move("RIGHT");
+		} else if (keyCode === UP_ARROW) {
+			user.move("UP");
+		} else if (keyCode === DOWN_ARROW) {
+			user.move("DOWN");
+		}
 	}
-}
+}	
