@@ -21,7 +21,7 @@ let tiles_foreground = new Array;
 
 // User interface
 let title_font, label_font;
-let ui_fullscreen = false;
+let ui_fullscreen;
 let ui_non_interact = new Array;
 let ui_interactable = new Array;
 
@@ -57,6 +57,7 @@ async function setup() {
     await fetch_JSON("resources/json/tile.json").then(data => {tile = data});
 
     push_tiles(current_level);
+	push_ui("MAINMENU");
 }
 
 // Draw tiles and graphics on canvas
@@ -75,6 +76,10 @@ function draw() {
     for (i in tiles_foreground) {
         tiles_foreground[i].show();
     }
+
+	for (i in ui_non_interact) {
+  		ui_non_interact[i].show();
+  	}
 }
 
 function keyPressed() {
