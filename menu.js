@@ -109,11 +109,17 @@ class Button {
 			switch (this.action) {
 				case "LOAD":
 					if (logged_in) {
+						// Load the save from the server
 						break;
 					} else {
+						// Bring up log-in prompt if not logged in already
 						LoginWithReplit();
 						break;
 					}
+					break;
+				case "START":
+					// Initialise new game
+					break;
 			}
 		}
 	}
