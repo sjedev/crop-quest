@@ -83,7 +83,6 @@ function draw() {
 
     // Draw player and full-screen UI is not displayed
 	if (user_onscreen && !ui_fullscreen) {
-		outline(mouseX, mouseY);
 		user.show();
 	}
 
@@ -101,6 +100,10 @@ function draw() {
 	cursor("default");
 	for (i in ui_interactable) {
 		ui_interactable[i].show();
+	}
+
+	if (user_onscreen && !ui_fullscreen) {
+		outline(mouseX, mouseY);
 	}
 }
 
