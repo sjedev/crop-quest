@@ -1,0 +1,127 @@
+function push_ui(state) {
+	// Remove pre-existing UI elements
+	ui_non_interact = [];
+	ui_interactable = [];
+	ui_fullscreen = false;
+	switch (state) {
+		case "MAINMENU":
+			// Lower third overlay with title and buttons
+			ui_fullscreen = true;
+			ui_non_interact.push(new Overlay("LTHIRD"));
+			ui_non_interact.push(new Title());
+			ui_interactable.push(new Button("START", 11, 10, 5));
+			ui_interactable.push(new Button("LOAD", 16.5, 10, 3));
+			ui_interactable.push(new Button("OPTIONS", 20, 10, 3));
+			break;
+	}
+}
+
+class Title {
+	show() {
+		textSize(tile_size);
+    	textFont(title_font);
+    	textAlign(LEFT, BOTTOM);
+    	// If mouse pointer is hovering over the title
+    	if (mouseX > (margin_x + tile_size) && 
+        	mouseX < ((margin_x + tile_size) + (tile_size * 7) - 5) && 
+        	mouseY > (margin_y + (tile_size * 10) + 1) && 
+        	mouseY < (margin_y + (tile_size * 10) + tile_size - 2)) {
+      		fill(132, 198, 105);
+    	} else {
+      		fill(255);
+    	}
+		// Display the title in the bottom left
+    	text("Crop Quest", (margin_x + tile_size), (margin_y + (tile_size * 11) + 12));
+	}
+}
+
+class Overlay {
+	constructor(type) {
+		this.type = type;
+	}
+
+	show() {
+    	noStroke();
+    	switch (this.type) {
+      		case "LTHIRD":
+        		// Lower third tinted overlay
+		        fill(0, 0, 0, 150);
+		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+		        break;
+      		case "ALL_LTHIRD":
+		        // Full screen with darker lower third
+		        fill(0, 0, 0, 100);
+		        rect(margin_x, margin_y, (tile_size * tiles_x), ((tile_size * tiles_y) - (tile_size * 3)))
+		        fill(0, 0, 0, 150);
+		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+		        break;
+    	}
+  	}
+}
+
+class Button {
+	constructor(action, x, y, length) {
+		this.action = action;
+		this.x = margin_x + (x * tile_size);
+		this.y = margin_y + (y * tile_size);
+		this.length = length * tile_size;
+	}
+
+	show() {
+		// If mouse pointer is hovering over the button
+		if (mouseX >= this.x &&
+			mouseX <= (this.x + this.length) &&
+			mouseY >= this.y &&
+			mouseY <= (this.y + tile_size)) {
+			fill(132, 198, 105);
+			cursor("pointer");
+		} else {
+			fill(255);
+		}
+		rect(this.x, this.y, this.length, tile_size);
+		textSize(Math.floor(0.65 * tile_size));
+		textFont(button_font);
+		fill(63, 38, 49);
+		textAlign(CENTER, TOP)
+		switch (this.action) {
+			case "START":
+				text("New game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "OPTIONS":
+				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "LOAD":
+				if (logged_in) {
+					text("Load", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				} else {
+					text("Log in", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				}
+				break;
+		}
+	}
+
+	click() {
+		// If mouse pointer is above the buton at the time of the click
+		if (mouseX >= this.x &&
+			mouseX <= (this.x + this.length) &&
+			mouseY >= this.y &&
+			mouseY <= (this.y + tile_size)) {
+			switch (this.action) {
+				case "LOAD":
+					if (logged_in) {
+						// Load the save from the server
+						break;
+					} else {
+						// Bring up log-in prompt if not logged in already
+						LoginWithReplit();
+						logged_in = true;
+						break;
+					}
+					break;
+				case "START":
+					// Initialise new game
+					break;
+			}
+		}
+	}
+}
