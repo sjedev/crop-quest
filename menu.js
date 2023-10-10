@@ -91,7 +91,11 @@ class Button {
 				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "LOAD":
-				text("Load", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				if (logged_in) {
+					text("Load", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				} else {
+					text("Log in", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				}
 				break;
 		}
 	}
@@ -102,7 +106,15 @@ class Button {
 			mouseX <= (this.x + this.length) &&
 			mouseY >= this.y &&
 			mouseY <= (this.y + tile_size)) {
-			console.log("Triggered")
+			switch (this.action) {
+				case "LOAD":
+					if (logged_in) {
+						break;
+					} else {
+						LoginWithReplit();
+						break;
+					}
+			}
 		}
 	}
 }
