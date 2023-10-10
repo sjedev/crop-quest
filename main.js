@@ -74,6 +74,8 @@ async function setup() {
 
 // Draw tiles and graphics on canvas
 function draw() {
+	background(255);
+	
     // Draw background tiles
     for (i in tiles_background) {
         tiles_background[i].show();
@@ -98,6 +100,10 @@ function draw() {
 	cursor("default");
 	for (i in ui_interactable) {
 		ui_interactable[i].show();
+	}
+
+	if (user_onscreen && !ui_fullscreen) {
+		outline(mouseX, mouseY);
 	}
 }
 

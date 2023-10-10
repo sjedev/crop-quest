@@ -4,6 +4,8 @@ function push_ui(state) {
 	ui_interactable = [];
 	ui_fullscreen = false;
 	switch (state) {
+		case "CLEAR":
+			break;
 		case "MAINMENU":
 			// Lower third overlay with title and buttons
 			ui_fullscreen = true;
@@ -110,6 +112,7 @@ class Button {
 				case "LOAD":
 					if (logged_in) {
 						// Load the save from the server
+						push_ui("CLEAR");
 						break;
 					} else {
 						// Bring up log-in prompt if not logged in already
@@ -120,6 +123,7 @@ class Button {
 					break;
 				case "START":
 					// Initialise new game
+					push_ui("CLEAR");
 					break;
 			}
 		}
