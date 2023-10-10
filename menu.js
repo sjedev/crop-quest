@@ -102,7 +102,7 @@ class Button {
 			mouseX <= (this.x + this.length) &&
 			mouseY >= this.y &&
 			mouseY <= (this.y + tile_size)) {
-			break;
+			console.log("Triggered")
 		}
 	}
 }

@@ -21,6 +21,8 @@ let tiles_foreground = new Array;
 
 // User interface
 let title_font, label_font;
+let logged_in = false;
+let replit_user;
 let ui_fullscreen;
 let ui_non_interact = new Array;
 let ui_interactable = new Array;
