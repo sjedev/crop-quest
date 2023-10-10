@@ -15,8 +15,8 @@ function outline(x, y) {
 		   selected_x <= user.x + 1 &&
 		   selected_y >= user.y - 1 &&
 		   selected_y <= user.y + 1) {
-			stroke(0);
-			strokeWeight(2);
+			stroke(101, 165, 86);
+			strokeWeight(4);
 			noFill();
 			rect(margin_x + (selected_x * tile_size), margin_y + (selected_y * tile_size), tile_size, tile_size);
 		}
