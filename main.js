@@ -54,6 +54,16 @@ async function setup() {
     user = new Avatar(9, 4);
 	user_onscreen = true;
 
+	// Check if the user is already logged in
+	replit_user = await getUserInfo();
+	try {
+		if (replit_user.id) {
+			logged_in = true;
+		} else {logged_in = false;}
+	} catch(error) {
+		console.error(error);
+	}
+
     // Waits for these files to be loaded before proceeding
     await fetch_JSON("resources/json/level.json").then(data => {level = data});
     await fetch_JSON("resources/json/tile.json").then(data => {tile = data});

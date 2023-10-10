@@ -114,6 +114,7 @@ class Button {
 					} else {
 						// Bring up log-in prompt if not logged in already
 						LoginWithReplit();
+						logged_in = true;
 						break;
 					}
 					break;
