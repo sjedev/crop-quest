@@ -41,7 +41,7 @@ let margin_y;
 function preload() {
 	title_font = loadFont("resources/fonts/blocks.ttf");
   	button_font = loadFont("resources/fonts/minisquare.ttf");
-    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v3.png");
+    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v4.png");
     spritesheet_avatars = loadImage("resources/spritesheets/avatars_v1.png");
 }
 
@@ -53,7 +53,7 @@ async function setup() {
     background(255);
 
     // Create player
-    user = new Avatar(9, 4);
+    user = new Avatar(19, 5);
 	user_onscreen = true;
 
 	// Check if the user is already logged in
@@ -125,11 +125,14 @@ function keyPressed() {
 
 function mousePressed() {
 	// Check mouse position for button presses
-	for (i in ui_interactable) {
-		ui_interactable[i].click();
+	if (ui_interactable.length != 0) {
+		for (i in ui_interactable) {
+			ui_interactable[i].click();
+		}
 	}
-	// Check tool uses
-	if (current_level === "FARM" && !ui_fullscreen) {
-		tile_interact("TILE", tool, mouseX, mouseY);
+	// Check tool uses and tile interactions
+	if (!ui_fullscreen) {
+		tile_interact(current_level, tool, mouseX, mouseY);
 	}
+	
 }
