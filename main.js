@@ -11,6 +11,7 @@ let tile, level;
 let user;
 let current_level = "menu";
 let user_onscreen = false;
+let tool = "HOE";
 
 // Tile metadata
 let tile_size;
@@ -125,4 +126,5 @@ function mousePressed() {
 	for (i in ui_interactable) {
 		ui_interactable[i].click();
 	}
+	if ()
 }
