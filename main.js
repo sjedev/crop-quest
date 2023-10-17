@@ -9,7 +9,7 @@ let tile, level;
 
 // Player metadata
 let user;
-let current_level = "menu";
+let current_level = "farm";
 let user_onscreen = false;
 let tool = "HOE";
 
@@ -19,6 +19,7 @@ let tiles_x = 24;
 let tiles_y = 12;
 let tiles_background = new Array;
 let tiles_foreground = new Array;
+let crops = new Array;
 
 // User interface
 let title_font, label_font;
@@ -123,8 +124,12 @@ function keyPressed() {
 }	
 
 function mousePressed() {
+	// Check mouse position for button presses
 	for (i in ui_interactable) {
 		ui_interactable[i].click();
 	}
-	if ()
+	// Check tool uses
+	if (current_level === "FARM" && !ui_fullscreen) {
+		tile_interact("TILE", tool, mouseX, mouseY);
+	}
 }
