@@ -24,15 +24,3 @@ function outline(x, y) {
 		}
 	}
 }
-
-function tile_interact (level, tool, x, y) {
-	// Map exact mouse position to a tile
-	selected_x = Math.floor((mouseX - margin_x) / tile_size);
-	selected_y = Math.floor((mouseY - margin_y) / tile_size);
-	
-	if (level === "farm") {
-		if (tool === "HOE") {
-			
-		}
-	}
-}

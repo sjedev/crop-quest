@@ -130,9 +130,4 @@ function mousePressed() {
 			ui_interactable[i].click();
 		}
 	}
-	// Check tool uses and tile interactions
-	if (!ui_fullscreen) {
-		tile_interact(current_level, tool, mouseX, mouseY);
-	}
-	
 }
