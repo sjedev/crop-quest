@@ -12,6 +12,7 @@ let user;
 let current_level = "farm";
 let user_onscreen = false;
 let tool = "HOE";
+let in_range = false;
 
 // Tile metadata
 let tile_size;
