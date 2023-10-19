@@ -139,6 +139,13 @@
         "collisions": false,
         "foreground": false
     },
+	"50": {
+		"tile_name": "crop_empty_dry",
+		"spritesheet_x": 384,
+		"spritesheet_y": 512,
+		"collisions": false,
+		"foreground": false
+	},
     "100": {
         "tile_name": "tree_single_orange_top",
         "spritesheet_x": 0,
