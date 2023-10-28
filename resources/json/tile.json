@@ -5,7 +5,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": true
+		"cultivatable": true,
+		"waterable": false
     },
     "2": {
         "tile_name": "grass_1",
@@ -13,7 +14,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": true
+		"cultivatable": true,
+		"waterable": false
     },
     "3": {
         "tile_name": "grass_2",
@@ -21,7 +23,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": true
+		"cultivatable": true,
+		"waterable": false
     },
     "4": {
         "tile_name": "grass_sprout",
@@ -29,7 +32,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "5": {
         "tile_name": "grass_mushroom",
@@ -37,7 +41,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "6": {
         "tile_name": "grass_rock",
@@ -45,7 +50,8 @@
         "spritesheet_y": 0,
         "collisions": true,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "10": {
         "tile_name": "path_edge_top_left",
@@ -53,7 +59,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "11": {
         "tile_name": "path_edge_top_middle",
@@ -61,7 +68,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "12": {
         "tile_name": "path_edge_top_right",
@@ -69,7 +77,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "13": {
         "tile_name": "path_edge_middle_left",
@@ -77,7 +86,8 @@
         "spritesheet_y": 0,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "14": {
         "tile_name": "path",
@@ -85,7 +95,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "15": {
         "tile_name": "path_edge_middle_right",
@@ -93,7 +104,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "16": {
         "tile_name": "path_edge_bottom_left",
@@ -101,7 +113,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "17": {
         "tile_name": "path_edge_bottom_middle",
@@ -109,7 +122,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "18": {
         "tile_name": "path_edge_bottom_right",
@@ -117,7 +131,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "20": {
         "tile_name": "path_corner_bottom_right",
@@ -125,7 +140,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "21": {
         "tile_name": "path_corner_bottom_left",
@@ -133,7 +149,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "22": {
         "tile_name": "path_corner_top_right",
@@ -141,7 +158,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "23": {
         "tile_name": "path_corner_top_left",
@@ -149,7 +167,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "30": {
         "tile_name": "cobble",
@@ -157,7 +176,8 @@
         "spritesheet_y": 64,
         "collisions": false,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
 	"50": {
 		"tile_name": "crop_empty_dry",
@@ -165,7 +185,8 @@
 		"spritesheet_y": 512,
 		"collisions": false,
 		"foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
 	},
     "100": {
         "tile_name": "tree_single_orange_top",
@@ -173,7 +194,8 @@
         "spritesheet_y": 128,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "101": {
         "tile_name": "tree_single_orange_bottom",
@@ -181,7 +203,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "102": {
         "tile_name": "tree_single_green_top",
@@ -189,7 +212,8 @@
         "spritesheet_y": 128,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "103": {
         "tile_name": "tree_single_green_bottom",
@@ -197,7 +221,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "110": {
         "tile_name": "tree_sapling_orange",
@@ -205,7 +230,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "111": {
         "tile_name": "tree_sapling_green",
@@ -213,7 +239,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "200": {
         "tile_name": "fence_closed_top_left",
@@ -221,7 +248,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "201": {
         "tile_name": "fence_closed_top_middle",
@@ -229,7 +257,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "202": {
         "tile_name": "fence_closed_top_right",
@@ -237,7 +266,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "203": {
         "tile_name": "fence_closed_middle_left",
@@ -245,7 +275,8 @@
         "spritesheet_y": 128,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "204": {
         "tile_name": "fence_closed_middle_right",
@@ -253,7 +284,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "205": {
         "tile_name": "fence_closed_bottom_left",
@@ -261,7 +293,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "206": {
         "tile_name": "fence_closed_gate",
@@ -269,7 +302,8 @@
         "spritesheet_y": 192,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "207": {
         "tile_name": "fence_closed_bottom_right",
@@ -277,7 +311,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "240": {
         "tile_name": "fence_vertical_top",
@@ -285,7 +320,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "241": {
         "tile_name": "fence_vertical_middle",
@@ -293,7 +329,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "242": {
         "tile_name": "fence_vertical_bottom",
@@ -301,7 +338,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "260": {
         "tile_name": "fence_horizontal_left",
@@ -309,7 +347,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "261": {
         "tile_name": "fence_horizontal_middle",
@@ -317,7 +356,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "262": {
         "tile_name": "fence_horizontal_right",
@@ -325,7 +365,8 @@
         "spritesheet_y": 192,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "290": {
         "tile_name": "sign",
@@ -333,7 +374,8 @@
         "spritesheet_y": 256,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "300": {
         "tile_name": "house_wood_roof_top_left",
@@ -341,7 +383,8 @@
         "spritesheet_y": 256,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "301": {
         "tile_name": "house_wood_roof_top_middle",
@@ -349,7 +392,8 @@
         "spritesheet_y": 256,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "302": {
         "tile_name": "house_wood_roof_top_right",
@@ -357,7 +401,8 @@
         "spritesheet_y": 256,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "303": {
         "tile_name": "house_wood_roof_chimney",
@@ -365,7 +410,8 @@
         "spritesheet_y": 256,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "310": {
         "tile_name": "house_wood_roof_bottom_left",
@@ -373,7 +419,8 @@
         "spritesheet_y": 256,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "311": {
         "tile_name": "house_wood_roof_bottom_middle",
@@ -381,7 +428,8 @@
         "spritesheet_y": 256,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "312": {
         "tile_name": "house_wood_roof_bottom_right",
@@ -389,7 +437,8 @@
         "spritesheet_y": 256,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "313": {
         "tile_name": "house_wood_roof_ledge",
@@ -397,7 +446,8 @@
         "spritesheet_y": 256,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "320": {
         "tile_name": "house_wood_front_left",
@@ -405,7 +455,8 @@
         "spritesheet_y": 256,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "321": {
         "tile_name": "house_wood_front_middle",
@@ -413,7 +464,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "322": {
         "tile_name": "house_wood_front_right",
@@ -421,7 +473,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "330": {
         "tile_name": "house_wood_door_0",
@@ -429,7 +482,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "331": {
         "tile_name": "house_wood_door_1",
@@ -437,7 +491,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "332": {
         "tile_name": "house_wood_door_2_left",
@@ -445,7 +500,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "333": {
         "tile_name": "house_wood_door_2_right",
@@ -453,7 +509,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "334": {
         "tile_name": "house_wood_window",
@@ -461,7 +518,8 @@
         "spritesheet_y": 320,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "350": {
         "tile_name": "house_stone_roof_top_left",
@@ -469,7 +527,8 @@
         "spritesheet_y": 320,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "351": {
         "tile_name": "house_stone_roof_top_middle",
@@ -477,7 +536,8 @@
         "spritesheet_y": 320,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "352": {
         "tile_name": "house_stone_roof_top_right",
@@ -485,7 +545,8 @@
         "spritesheet_y": 320,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "353": {
         "tile_name": "house_stone_roof_chimney",
@@ -493,7 +554,8 @@
         "spritesheet_y": 384,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "360": {
         "tile_name": "house_stone_roof_bottom_left",
@@ -501,7 +563,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "361": {
         "tile_name": "house_stone_roof_bottom_middle",
@@ -509,7 +572,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "362": {
         "tile_name": "house_stone_roof_bottom_right",
@@ -517,7 +581,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "363": {
         "tile_name": "house_stone_roof_ledge",
@@ -525,7 +590,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "370": {
         "tile_name": "house_stone_front_left",
@@ -533,7 +599,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "371": {
         "tile_name": "house_stone_front_middle",
@@ -541,7 +608,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "372": {
         "tile_name": "house_stone_front_right",
@@ -549,7 +617,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "380": {
         "tile_name": "house_stone_door_0",
@@ -557,7 +626,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "381": {
         "tile_name": "house_stone_door_1",
@@ -565,7 +635,8 @@
         "spritesheet_y": 384,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "382": {
         "tile_name": "house_stone_door_2_left",
@@ -573,7 +644,8 @@
         "spritesheet_y": 448,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "383": {
         "tile_name": "house_stone_door_2_right",
@@ -581,7 +653,8 @@
         "spritesheet_y": 448,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "384": {
         "tile_name": "house_stone_window",
@@ -589,7 +662,8 @@
         "spritesheet_y": 448,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "395": {
         "tile_name": "well_top",
@@ -597,7 +671,8 @@
         "spritesheet_y": 448,
         "collisions": false,
         "foreground": true,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     },
     "396": {
         "tile_name": "well_bottom",
@@ -605,6 +680,7 @@
         "spritesheet_y": 448,
         "collisions": true,
         "foreground": false,
-		"cultivatable": false
+		"cultivatable": false,
+		"waterable": false
     }
 }

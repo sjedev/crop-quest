@@ -137,8 +137,10 @@ function mousePressed() {
 	if (in_range) {
 		tile_selection = (selected_y * 24) + selected_x;
 		// If the crop can be cultivated
-		// Set the tile graphic to a crop
-		tiles_background[tile_selection].spritesheet_x = tile[50].spritesheet_x;
-		tiles_background[tile_selection].spritesheet_y = tile[50].spritesheet_y;
+		if (tiles_background[tile_selection].cultivatable){
+			// Set the tile graphic to a crop
+			tiles_background[tile_selection].id = 50;
+			tiles_background[tile_selection].update();
+		}
 	}
 }
