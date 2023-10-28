@@ -18,6 +18,7 @@ let in_range = false;
 let tile_size;
 let tiles_x = 24;
 let tiles_y = 12;
+let tile_selection;
 let tiles_background = new Array;
 let tiles_foreground = new Array;
 let crops = new Array;
@@ -130,5 +131,14 @@ function mousePressed() {
 		for (i in ui_interactable) {
 			ui_interactable[i].click();
 		}
+	}
+
+	// Check tile selected if within range
+	if (in_range) {
+		tile_selection = (selected_y * 24) + selected_x;
+		// If the crop can be cultivated
+		// Set the tile graphic to a crop
+		tiles_background[tile_selection].spritesheet_x = tile[50].spritesheet_x;
+		tiles_background[tile_selection].spritesheet_y = tile[50].spritesheet_y;
 	}
 }

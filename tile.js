@@ -10,6 +10,9 @@ class Tile {
         // Then get the on-screen co-ordinates of the tile from the parsed arguments
         this.x = x + margin_x;
         this.y = y + margin_y;
+
+		this.grid_x = Math.floor(x / tile_size);
+		this.grid_y = Math.floor(y / tile_size);
     }
 
     show() {
