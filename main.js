@@ -13,6 +13,9 @@ let current_level = "farm";
 let user_onscreen = false;
 let tool = "HOE";
 let in_range = false;
+let bucket_filled = false;
+let seed_selected = 1;
+let seeds_1 = 15;
 
 // Tile metadata
 let tile_size;

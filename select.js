@@ -32,11 +32,32 @@ function interaction(hand) {
 	// Check tile selected if within range
 	if (in_range) {
 		tile_selection = (selected_y * 24) + selected_x;
-		// If the crop can be cultivated
-		if (tiles_background[tile_selection].cultivatable){
-			// Set the tile graphic to a crop
-			tiles_background[tile_selection].id = 50;
-			tiles_background[tile_selection].update();
+		// If the hoe is selected
+		if (hand === "HOE"){
+			// If the crop can be cultivated
+			if (tiles_background[tile_selection].cultivatable){
+				// Set the tile graphic to a crop
+				tiles_background[tile_selection].id = 50;
+				tiles_background[tile_selection].update();
+				// Update in level tiles array
+				level[current_level].tiles[selected_y][selected_x] = 50;
+			}
+		// If the water bucket is selected and is full
+		} else if (hand === "BUCKET" && bucket_filled) {
+			console.log("Bucket and is full");
+			bucket_filled = false;
+		// If seed type 1 is being held and there is some of seed 1
+		} else if (hand === "SEED" && seed_selected === 1 && seeds_1 > 0) {
+			// If it is a empty cultivated tile
+			if (tiles_background[tile_selection].id === 50) {
+				// Set the tile graphic to a crop
+				tiles_background[tile_selection].id = 60;
+				tiles_background[tile_selection].update();
+				// Update in level tiles array
+				level[current_level].tiles[selected_y][selected_x] = 60;
+				// Use a seed
+				seeds_1 -= 1;
+			}
 		}
 	}
 }
