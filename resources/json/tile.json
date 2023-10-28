@@ -188,6 +188,15 @@
 		"cultivatable": false,
 		"waterable": false
 	},
+	"60": {
+		"tile_name": "crop_1_seeds_unwatered",
+		"spritesheet_x": 448,
+		"spritesheet_y": 512,
+		"collisions": false,
+		"foreground": false,
+		"cultivatable": false,
+		"waterable": true
+	},
     "100": {
         "tile_name": "tree_single_orange_top",
         "spritesheet_x": 0,

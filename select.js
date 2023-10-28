@@ -27,3 +27,16 @@ function outline(x, y) {
 		}
 	}
 }
+
+function interaction(hand) {
+	// Check tile selected if within range
+	if (in_range) {
+		tile_selection = (selected_y * 24) + selected_x;
+		// If the crop can be cultivated
+		if (tiles_background[tile_selection].cultivatable){
+			// Set the tile graphic to a crop
+			tiles_background[tile_selection].id = 50;
+			tiles_background[tile_selection].update();
+		}
+	}
+}
