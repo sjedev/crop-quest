@@ -25,7 +25,6 @@ let tile_selection;
 let tiles_background = new Array;
 let tiles_foreground = new Array;
 let crops = new Array;
-const crop_timer = setTimeout(growth); // Crop growth timer
 
 // User interface
 let title_font, label_font;
@@ -42,6 +41,11 @@ let spritesheet_avatars;
 // Margins in pixels to centre the graphics
 let margin_x;
 let margin_y;
+
+// Delay for crop growth timer
+const async_delay = (msDelay) => {
+  return new Promise(resolve => setTimeout(resolve, msDelay));
+};
 
 // Preload assets before setup
 function preload() {

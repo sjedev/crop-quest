@@ -37,6 +37,13 @@ class Tile {
 	}
 }
 
+const growth_delay = async () => {
+  let growth_timer = await async_delay(3000);
+};
+
+// Called after a crop is watered
 function growth(crop) {
 	// Advance crop stage if not at final stage
+	console.log("meow");
+	growth_delay();
 }
