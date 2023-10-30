@@ -16,6 +16,7 @@ let in_range = false;
 let bucket_filled = false;
 let seed_selected = 1;
 let seeds_1 = 15;
+let crops_1 = 0;
 
 // Tile metadata
 let tile_size;

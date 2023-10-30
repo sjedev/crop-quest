@@ -53,6 +53,10 @@ function interaction(hand) {
 				console.log("watered");
 				tiles_background[tile_selection].id += 1;
 				tiles_background[tile_selection].update();
+				// Trigger crop growth
+				growth(tile_selection);
+				// Update in level tiles array
+				level[current_level].tiles[selected_y][selected_x] += 2;
 				// Empty the bucket after use
 				bucket_filled = false;
 			}

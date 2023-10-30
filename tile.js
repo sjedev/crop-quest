@@ -42,8 +42,12 @@ const growth_delay = async () => {
 };
 
 // Called after a crop is watered
-function growth(crop) {
+async function growth(crop) {
 	// Advance crop stage if not at final stage
-	console.log("meow");
+	if (tiles_background[crop].id != 64) {
+		await growth_delay();
+		tiles_background[crop].id += 1;
+		tiles_background[crop].update();
+	}
 	growth_delay();
 }
