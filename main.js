@@ -46,7 +46,7 @@ let margin_y;
 function preload() {
 	title_font = loadFont("resources/fonts/blocks.ttf");
   	button_font = loadFont("resources/fonts/minisquare.ttf");
-    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v4.png");
+    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v5.png");
     spritesheet_avatars = loadImage("resources/spritesheets/avatars_v1.png");
 }
 
