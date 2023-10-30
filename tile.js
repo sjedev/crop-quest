@@ -36,3 +36,7 @@ class Tile {
 		this.waterable = tile[this.id].waterable;
 	}
 }
+
+function growth(crop) {
+	// Advance crop stage if not at final stage
+}

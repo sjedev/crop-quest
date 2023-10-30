@@ -25,6 +25,7 @@ let tile_selection;
 let tiles_background = new Array;
 let tiles_foreground = new Array;
 let crops = new Array;
+const crop_timer = setTimeout(growth); // Crop growth timer
 
 // User interface
 let title_font, label_font;

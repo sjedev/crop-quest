@@ -42,10 +42,20 @@ function interaction(hand) {
 				// Update in level tiles array
 				level[current_level].tiles[selected_y][selected_x] = 50;
 			}
-		// If the water bucket is selected and is full
-		} else if (hand === "BUCKET" && bucket_filled) {
-			console.log("Bucket and is full");
-			bucket_filled = false;
+		// If the water bucket is selected
+		} else if (hand === "BUCKET") {
+			// If re-filling the bucket at a well
+			if (tiles_background[tile_selection].id === 396) {
+				bucket_filled = true;
+			// If using the bucket on a waterable tile
+			} else if (tiles_background[tile_selection].waterable && bucket_filled) {
+				// Advance growth stage
+				console.log("watered");
+				tiles_background[tile_selection].id += 1;
+				tiles_background[tile_selection].update();
+				// Empty the bucket after use
+				bucket_filled = false;
+			}
 		// If seed type 1 is being held and there is some of seed 1
 		} else if (hand === "SEED" && seed_selected === 1 && seeds_1 > 0) {
 			// If it is a empty cultivated tile

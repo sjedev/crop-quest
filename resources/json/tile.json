@@ -197,6 +197,42 @@
 		"cultivatable": false,
 		"waterable": true
 	},
+	"61": {
+		"tile_name": "crop_1_seeds_watered",
+		"spritesheet_x": 512,
+		"spritesheet_y": 512,
+		"collisions": false,
+		"foreground": false,
+		"cultivatable": false,
+		"waterable": false
+	},
+	"62": {
+		"tile_name": "crop_1_mid_unwatered",
+		"spritesheet_x": 576,
+		"spritesheet_y": 512,
+		"collisions": false,
+		"foreground": false,
+		"cultivatable": false,
+		"waterable": true
+	},
+	"63": {
+		"tile_name": "crop_1_mid_watered",
+		"spritesheet_x": 0,
+		"spritesheet_y": 576,
+		"collisions": false,
+		"foreground": false,
+		"cultivatable": false,
+		"waterable": false
+	},
+	"64": {
+		"tile_name": "crop_1_grown",
+		"spritesheet_x": 64,
+		"spritesheet_y": 576,
+		"collisions": false,
+		"foreground": false,
+		"cultivatable": false,
+		"waterable": false
+	},
     "100": {
         "tile_name": "tree_single_orange_top",
         "spritesheet_x": 0,
