@@ -10,10 +10,31 @@ function push_ui(state) {
 			// Lower third overlay with title and buttons
 			ui_fullscreen = true;
 			ui_non_interact.push(new Overlay("LTHIRD"));
+			// "Crop Quest" logo
 			ui_non_interact.push(new Title());
+			// Buttons
 			ui_interactable.push(new Button("START", 11, 10, 5));
 			ui_interactable.push(new Button("LOAD", 16.5, 10, 3));
 			ui_interactable.push(new Button("OPTIONS", 20, 10, 3));
+			break;
+		case "HUD":
+			ui_non_interact.push(new Overlay("HUD"));
+			// Currently selected tool
+			ui_non_interact.push(new Label(tool, 0, 11));
+			// HP
+			ui_non_interact.push(new Label("HP", 22, 0));
+			ui_non_interact.push(new Label("0", 23, 0, "HP"));
+			// Coins
+			ui_non_interact.push(new Label(" ", 0, 0, "ICON", 320, 448));
+			ui_non_interact.push(new Label(String(coins), 1, 0));
+			// Wood
+			ui_non_interact.push(new Label(" ", 3, 0, "ICON", 384, 448));
+			ui_non_interact.push(new Label(String(wood), 4, 0));
+			// Stone
+			ui_non_interact.push(new Label(" ", 6, 0, "ICON", 448, 448));
+			ui_non_interact.push(new Label(String(stone), 7, 0));
+			// Tools
+			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"))
 			break;
 	}
 }
@@ -53,10 +74,22 @@ class Overlay {
       		case "ALL_LTHIRD":
 		        // Full screen with darker lower third
 		        fill(0, 0, 0, 100);
-		        rect(margin_x, margin_y, (tile_size * tiles_x), ((tile_size * tiles_y) - (tile_size * 3)))
+		        rect(margin_x, margin_y, (tile_size * tiles_x), ((tile_size * tiles_y) - (tile_size * 3)));
 		        fill(0, 0, 0, 150);
 		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
 		        break;
+			case "HUD":
+				// In-game backgrounds for stats and toolbar
+				fill(0, 0, 0, 100);
+				// Top left for coins, crops, etc.
+				rect(margin_x, margin_y, (tile_size * 15), (tile_size * 1));
+				// Top right for HP
+				rect(margin_x + (22 * tile_size), margin_y, (tile_size * 2), (tile_size * 1));
+				// Bottom left for selected tool
+				rect(margin_x, margin_y + ((tiles_y - 1) * tile_size), tile_size * 3, tile_size);
+				// Bottom right for tool bar
+				rect(margin_x + (tile_size * 14.5), margin_y + ((tiles_y - 1) * tile_size), tile_size * 9.5, tile_size);
+				break;
     	}
   	}
 }
@@ -84,7 +117,7 @@ class Button {
 		textSize(Math.floor(0.65 * tile_size));
 		textFont(button_font);
 		fill(63, 38, 49);
-		textAlign(CENTER, TOP)
+		textAlign(CENTER, TOP);
 		switch (this.action) {
 			case "START":
 				text("New game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
@@ -123,9 +156,51 @@ class Button {
 					break;
 				case "START":
 					// Initialise new game
-					push_ui("CLEAR");
+					// push_ui("CLEAR");
+					push_ui("HUD");
 					break;
 			}
+		}
+	}
+}
+
+class Label {
+	constructor(message, x, y, special, spritesheet_x, spritesheet_y) {
+		this.message = message;
+		// A slight off-set is added to account for the font's padding
+		this.x = margin_x + (x * tile_size) + (0.2 * tile_size);
+		this.y = margin_y + (y * tile_size) + (0.05 * tile_size);
+		// For labels that need extra colouring/specific positioning
+		this.special = special; 
+		// Spritesheet location of icons
+		this.spritesheet_x = spritesheet_x;
+		this.spritesheet_y = spritesheet_y;
+	}
+
+	show() {
+		textSize(Math.floor(0.65 * tile_size));
+		textFont(button_font);
+		fill(255, 255, 255);
+		textAlign(LEFT, TOP);
+
+		// Specific instructions for displaying HP
+		if (this.special === "HP") {
+			if (health > 60) {
+				// Green text if health is above 60
+				fill(132, 198, 105);
+			} else {
+				fill(0, 0, 0);
+			}
+			text(String(health), this.x - (0.1 * tile_size), this.y);
+		// Specific instructions for displaying icons
+		} else if (this.special === "ICON") {
+			image(spritesheet_tiles, this.x - (0.2 * tile_size), this.y - (0.06 * tile_size), tile_size, tile_size, this.spritesheet_x, this.spritesheet_y, 64, 64);
+		// Specific instruction for displaying the toolbar
+		} else if (this.special === "TOOLS") {
+			
+	    } else {
+			// Draw text
+			text(this.message, this.x, this.y);
 		}
 	}
 }

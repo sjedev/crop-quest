@@ -50,7 +50,6 @@ function interaction(hand) {
 			// If using the bucket on a waterable tile
 			} else if (tiles_background[tile_selection].waterable && bucket_filled) {
 				// Advance growth stage
-				console.log("watered");
 				tiles_background[tile_selection].id += 1;
 				tiles_background[tile_selection].update();
 				// Trigger crop growth
@@ -71,6 +70,19 @@ function interaction(hand) {
 				level[current_level].tiles[selected_y][selected_x] = 60;
 				// Use a seed
 				seeds_1 -= 1;
+			}
+		// If the scythe is being held
+		} else if (hand === "SCYTHE") {
+			// If the crop is fully grown
+			switch (tiles_background[tile_selection].id) {
+				case 64: // Fully-grown radish
+					crops_1 += 1; // Add to inventory
+					// Set the tile graphic to a cultivated tile again
+					tiles_background[tile_selection].id = 50;
+					tiles_background[tile_selection].update();
+					// Update in level tiles array
+					level[current_level].tiles[selected_y][selected_x] = 50;
+					break;
 			}
 		}
 	}
