@@ -21,6 +21,8 @@ let health = 99;
 let coins = 30;
 let wood = 0;
 let stone = 0;
+let tools = ["PICKAXE", "AXE", "SCYTHE", "HOE", "SEED", "BUCKET"];
+let tool_selected = 3;
 
 // Tile metadata
 let tile_size;
@@ -56,7 +58,7 @@ const async_delay = (msDelay) => {
 function preload() {
 	title_font = loadFont("resources/fonts/blocks.ttf");
   	button_font = loadFont("resources/fonts/minisquare.ttf");
-    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v5.png");
+    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v6.png");
     spritesheet_avatars = loadImage("resources/spritesheets/avatars_v1.png");
 }
 
@@ -125,17 +127,41 @@ function draw() {
 }
 
 function keyPressed() {
+	// Player movement, only when there is no fullscreen UI
 	if (!ui_fullscreen) {
-		if (keyCode === LEFT_ARROW) {
-			user.move("LEFT");
-		} else if (keyCode === RIGHT_ARROW) {
-			user.move("RIGHT");
-		} else if (keyCode === UP_ARROW) {
-			user.move("UP");
-		} else if (keyCode === DOWN_ARROW) {
-			user.move("DOWN");
+		switch (keyCode) {
+			case 65:
+				user.move("LEFT");
+				break;
+			case 68:
+				user.move("RIGHT");
+				break;
+			case 87:
+				user.move("UP");
+				break;
+			case 83:
+				user.move("DOWN");
+				break;
 		}
 	}
+
+	// Change tool selection
+	switch (keyCode) {
+		case 81:
+			// q pressed
+			if (tool_selected > 0) {
+				tool_selected -= 1;
+			}
+			break;
+		case 69:
+			// e pressed
+			if (tool_selected < 5) {
+				tool_selected += 1;
+			}
+			break;
+	}
+	// Update tool
+	tool = tools[tool_selected];
 }	
 
 function mousePressed() {
