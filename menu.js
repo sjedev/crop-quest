@@ -20,7 +20,7 @@ function push_ui(state) {
 		case "HUD":
 			ui_non_interact.push(new Overlay("HUD"));
 			// Currently selected tool
-			ui_non_interact.push(new Label(tool, 0, 11));
+			ui_non_interact.push(new Label(tool, 0, 11, "SELECTED"));
 			// HP
 			ui_non_interact.push(new Label("HP", 22, 0));
 			ui_non_interact.push(new Label("0", 23, 0, "HP"));
@@ -33,8 +33,15 @@ function push_ui(state) {
 			// Stone
 			ui_non_interact.push(new Label(" ", 6, 0, "ICON", 448, 448));
 			ui_non_interact.push(new Label(String(stone), 7, 0, "STONE"));
+			// Seeds
+			ui_non_interact.push(new Label(" ", 9, 0, "ICON", 192, 576));
+			ui_non_interact.push(new Label(String(seeds_1), 10, 0, "SEEDS"));
+			// Produce
+			ui_non_interact.push(new Label(" ", 12, 0, "ICON", 128, 576));
+			ui_non_interact.push(new Label(String(crops_1), 13, 0, "PRODUCE"));
 			// Tools
 			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"));
+			ui_non_interact.push(new Label(" ", 0, 0, "SELECTION"))
 			break;
 	}
 }
@@ -192,9 +199,11 @@ class Label {
 				fill(0, 0, 0);
 			}
 			text(String(health), this.x - (0.1 * tile_size), this.y);
+			
 		// Specific instructions for displaying icons
 		} else if (this.special === "ICON") {
 			image(spritesheet_tiles, this.x - (0.2 * tile_size), this.y - (0.06 * tile_size), tile_size, tile_size, this.spritesheet_x, this.spritesheet_y, 64, 64);
+			
 		// Specific instruction for displaying the toolbar
 		} else if (this.special === "TOOLS") {
 			// Bucket icon
@@ -203,12 +212,43 @@ class Label {
 			} else {
 				image(spritesheet_tiles, margin_x + (22.5 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 512, 448, 64, 64);
 			}
+
+			// Seeds icon
+			image(spritesheet_tiles, margin_x + (21 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 192, 576, 64, 64);
+
+			// Hoe icon
+			image(spritesheet_tiles, margin_x + (19.5 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 320, 512, 64, 64);
+
+			// Scythe icon
+			image(spritesheet_tiles, margin_x + (18 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 0, 512, 64, 64);
+
+			// Axe icon
+			image(spritesheet_tiles, margin_x + (16.5 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 128, 512, 64, 64);
+
+			// Pickaxe icon
+			image(spritesheet_tiles, margin_x + (15 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 256, 512, 64, 64);
+			
 	    } else if (this.special === "COINS") {
 			text(String(coins), this.x, this.y);
+			
 		} else if (this.special === "STONE") {
 			text(String(stone), this.x, this.y);
+			
 		} else if (this.special === "WOOD") {
 			text(String(wood), this.x, this.y);
+			
+		} else if (this.special === "SEEDS") {
+			text(String(seeds_1), this.x, this.y);
+			
+		} else if (this.special === "PRODUCE") {
+			text(String(crops_1), this.x, this.y);
+			
+		} else if (this.special === "SELECTED") {
+			text(String(tool), this.x, this.y);
+
+		} else if (this.special === "SELECTION") {
+			fill(132, 198, 105);
+			
 		} else {
 			// Draw text
 			text(this.message, this.x, this.y);
