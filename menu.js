@@ -248,6 +248,7 @@ class Label {
 
 		} else if (this.special === "SELECTION") {
 			fill(132, 198, 105);
+			rect(margin_x + (tool_selected * ((tile_size / 2) + tile_size)) + (tile_size * 15), (margin_y + (tile_size * tiles_y)) - (tile_size / 4), tile_size, tile_size / 4);
 			
 		} else {
 			// Draw text
