@@ -34,7 +34,7 @@ function push_ui(state) {
 			ui_non_interact.push(new Label(" ", 6, 0, "ICON", 448, 448));
 			ui_non_interact.push(new Label(String(stone), 7, 0));
 			// Tools
-			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"))
+			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"));
 			break;
 	}
 }
@@ -197,7 +197,12 @@ class Label {
 			image(spritesheet_tiles, this.x - (0.2 * tile_size), this.y - (0.06 * tile_size), tile_size, tile_size, this.spritesheet_x, this.spritesheet_y, 64, 64);
 		// Specific instruction for displaying the toolbar
 		} else if (this.special === "TOOLS") {
-			
+			// Bucket icon
+			if (bucket_filled) {
+				image(spritesheet_tiles, margin_x + (22.5 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 576, 448, 64, 64);
+			} else {
+				image(spritesheet_tiles, margin_x + (22.5 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 512, 448, 64, 64);
+			}
 	    } else {
 			// Draw text
 			text(this.message, this.x, this.y);
