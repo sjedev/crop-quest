@@ -26,13 +26,13 @@ function push_ui(state) {
 			ui_non_interact.push(new Label("0", 23, 0, "HP"));
 			// Coins
 			ui_non_interact.push(new Label(" ", 0, 0, "ICON", 320, 448));
-			ui_non_interact.push(new Label(String(coins), 1, 0));
+			ui_non_interact.push(new Label(String(coins), 1, 0, "COINS"));
 			// Wood
 			ui_non_interact.push(new Label(" ", 3, 0, "ICON", 384, 448));
-			ui_non_interact.push(new Label(String(wood), 4, 0));
+			ui_non_interact.push(new Label(String(wood), 4, 0, "WOOD"));
 			// Stone
 			ui_non_interact.push(new Label(" ", 6, 0, "ICON", 448, 448));
-			ui_non_interact.push(new Label(String(stone), 7, 0));
+			ui_non_interact.push(new Label(String(stone), 7, 0, "STONE"));
 			// Tools
 			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"));
 			break;
@@ -203,7 +203,13 @@ class Label {
 			} else {
 				image(spritesheet_tiles, margin_x + (22.5 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 512, 448, 64, 64);
 			}
-	    } else {
+	    } else if (this.special === "COINS") {
+			text(String(coins), this.x, this.y);
+		} else if (this.special === "STONE") {
+			text(String(stone), this.x, this.y);
+		} else if (this.special === "WOOD") {
+			text(String(wood), this.x, this.y);
+		} else {
 			// Draw text
 			text(this.message, this.x, this.y);
 		}
