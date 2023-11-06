@@ -9,15 +9,27 @@ let tile, level;
 
 // Player metadata
 let user;
-let current_level = "menu";
+let current_level = "farm";
 let user_onscreen = false;
+let tool = "HOE";
+let in_range = false;
+let bucket_filled = false;
+let seed_selected = 1;
+let seeds_1 = 15;
+let crops_1 = 0;
+let health = 99;
+let coins = 30;
+let wood = 0;
+let stone = 0;
 
 // Tile metadata
 let tile_size;
 let tiles_x = 24;
 let tiles_y = 12;
+let tile_selection;
 let tiles_background = new Array;
 let tiles_foreground = new Array;
+let crops = new Array;
 
 // User interface
 let title_font, label_font;
@@ -35,11 +47,16 @@ let spritesheet_avatars;
 let margin_x;
 let margin_y;
 
+// Delay for crop growth timer
+const async_delay = (msDelay) => {
+  return new Promise(resolve => setTimeout(resolve, msDelay));
+};
+
 // Preload assets before setup
 function preload() {
 	title_font = loadFont("resources/fonts/blocks.ttf");
   	button_font = loadFont("resources/fonts/minisquare.ttf");
-    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v3.png");
+    spritesheet_tiles = loadImage("resources/spritesheets/tiles_v5.png");
     spritesheet_avatars = loadImage("resources/spritesheets/avatars_v1.png");
 }
 
@@ -51,7 +68,7 @@ async function setup() {
     background(255);
 
     // Create player
-    user = new Avatar(9, 4);
+    user = new Avatar(19, 5);
 	user_onscreen = true;
 
 	// Check if the user is already logged in
@@ -122,7 +139,12 @@ function keyPressed() {
 }	
 
 function mousePressed() {
-	for (i in ui_interactable) {
-		ui_interactable[i].click();
+	// Check mouse position for button presses
+	if (ui_interactable.length != 0) {
+		for (i in ui_interactable) {
+			ui_interactable[i].click();
+		}
 	}
+
+	interaction(tool);
 }
