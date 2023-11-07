@@ -16,8 +16,8 @@
         ],
         "width": 24,
         "height": 12,
-        "start_x": 19,
-        "start_y": 5
+        "start_x": 23,
+        "start_y": 9
     },
 	"town" : {
 		"tiles": [
