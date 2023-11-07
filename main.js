@@ -9,7 +9,7 @@ let tile, level;
 
 // Player metadata
 let user;
-let current_level = "farm";
+let current_level = "town";
 let user_onscreen = false;
 let tool = "HOE";
 let in_range = false;
