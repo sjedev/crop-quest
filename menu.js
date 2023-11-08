@@ -43,6 +43,9 @@ function push_ui(state) {
 			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"));
 			ui_non_interact.push(new Label(" ", 0, 0, "SELECTION"))
 			break;
+		case "SHOP":
+			ui_non_interact.push(new Overlay("SHOP"));
+			break;
 	}
 }
 
@@ -96,6 +99,13 @@ class Overlay {
 				rect(margin_x, margin_y + ((tiles_y - 1) * tile_size), tile_size * 3, tile_size);
 				// Bottom right for tool bar
 				rect(margin_x + (tile_size * 14.5), margin_y + ((tiles_y - 1) * tile_size), tile_size * 9.5, tile_size);
+				break;
+			case "SHOP":
+				fill(0, 0, 0, 100);
+				// Background for stats
+				rect(margin_x, margin_y, (tile_size * 15), (tile_size * 1));
+				// Background for shop menu
+				rect(margin_x + (4 * tile_size), margin_y + (2 * tile_size), (tile_size * 16), (tile_size * 8));
 				break;
 		}
 	}
