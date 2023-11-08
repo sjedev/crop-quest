@@ -45,7 +45,26 @@ function push_ui(state) {
 			break;
 		case "SHOP":
 			ui_non_interact.push(new Overlay("SHOP"));
+			// HP
+			ui_non_interact.push(new Label("HP", 22, 0));
+			ui_non_interact.push(new Label("0", 23, 0, "HP"));
+			// Coins
+			ui_non_interact.push(new Label(" ", 0, 0, "ICON", 320, 448));
+			ui_non_interact.push(new Label(String(coins), 1, 0, "COINS"));
+			// Wood
+			ui_non_interact.push(new Label(" ", 3, 0, "ICON", 384, 448));
+			ui_non_interact.push(new Label(String(wood), 4, 0, "WOOD"));
+			// Stone
+			ui_non_interact.push(new Label(" ", 6, 0, "ICON", 448, 448));
+			ui_non_interact.push(new Label(String(stone), 7, 0, "STONE"));
+			// Seeds
+			ui_non_interact.push(new Label(" ", 9, 0, "ICON", 192, 576));
+			ui_non_interact.push(new Label(String(seeds_1), 10, 0, "SEEDS"));
+			// Produce
+			ui_non_interact.push(new Label(" ", 12, 0, "ICON", 128, 576));
+			ui_non_interact.push(new Label(String(crops_1), 13, 0, "PRODUCE"));
 			break;
+			
 	}
 }
 
