@@ -41,8 +41,12 @@ class Avatar {
 				}
 				break;
 			case "UP":
+				// If player is below the entrance to the shop
+				if (this.x >= 11 && this.x <= 12 && this.y === 5 && current_level === "town") {
+					push_ui("SHOP")
+					
 				// Checks above tile for collisions
-				if (tile[level[current_level].tiles[this.y - 1][this.x]].collisions === false) {
+				} else if (tile[level[current_level].tiles[this.y - 1][this.x]].collisions === false) {
 					this.y -= 1;
 				}
 				break;

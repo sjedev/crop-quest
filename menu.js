@@ -43,6 +43,36 @@ function push_ui(state) {
 			ui_non_interact.push(new Label(" ", 0, 0, "TOOLS"));
 			ui_non_interact.push(new Label(" ", 0, 0, "SELECTION"))
 			break;
+		case "SHOP":
+			ui_fullscreen = true;
+			shop_open = true;
+			ui_non_interact.push(new Overlay("SHOP"));
+			// Coins
+			ui_non_interact.push(new Label(" ", 0, 0, "ICON", 320, 448));
+			ui_non_interact.push(new Label(String(coins), 1, 0, "COINS"));
+			// Wood
+			ui_non_interact.push(new Label(" ", 3, 0, "ICON", 384, 448));
+			ui_non_interact.push(new Label(String(wood), 4, 0, "WOOD"));
+			// Stone
+			ui_non_interact.push(new Label(" ", 6, 0, "ICON", 448, 448));
+			ui_non_interact.push(new Label(String(stone), 7, 0, "STONE"));
+			// Seeds
+			ui_non_interact.push(new Label(" ", 9, 0, "ICON", 192, 576));
+			ui_non_interact.push(new Label(String(seeds_1), 10, 0, "SEEDS"));
+			// Produce
+			ui_non_interact.push(new Label(" ", 12, 0, "ICON", 128, 576));
+			ui_non_interact.push(new Label(String(crops_1), 13, 0, "PRODUCE"));
+			// Shop labels
+			ui_non_interact.push(new Label("Shop", 5, 3));
+			ui_non_interact.push(new Label("Village Groceries 'n' Stuff", 8, 3));
+			ui_non_interact.push(new Label("Buy Radish Seeds", 5, 6));
+			ui_non_interact.push(new Label("15C", 12, 6));
+			ui_non_interact.push(new Label("Sell Radishes", 5, 8));
+			ui_non_interact.push(new Label("25C", 12, 8));
+			// Shop buttons
+			ui_interactable.push(new Button("BUY", 16, 6, 3));
+			ui_interactable.push(new Button("SELL", 16, 8, 3));
+			break;
 	}
 }
 
@@ -97,6 +127,13 @@ class Overlay {
 				// Bottom right for tool bar
 				rect(margin_x + (tile_size * 14.5), margin_y + ((tiles_y - 1) * tile_size), tile_size * 9.5, tile_size);
 				break;
+			case "SHOP":
+				fill(0, 0, 0, 100);
+				// Background for stats
+				rect(margin_x, margin_y, (tile_size * 15), (tile_size * 1));
+				// Background for shop menu
+				rect(margin_x + (4 * tile_size), margin_y + (2 * tile_size), (tile_size * 16), (tile_size * 8));
+				break;
 		}
 	}
 }
@@ -139,6 +176,12 @@ class Button {
 					text("Log in", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				}
 				break;
+			case "BUY":
+				text("Buy", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "SELL":
+				text("Sell", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
 		}
 	}
 
@@ -165,6 +208,26 @@ class Button {
 					// Initialise new game
 					// push_ui("CLEAR");
 					push_ui("HUD");
+					break;
+				case "BUY":
+					if (coins >= 15) {
+						// 15 coins for one radish seed
+						coins -= 15;
+						seeds_1 += 1;
+					} else {
+						// Inform user they have insufficient coins
+						ui_non_interact.push(new Label("Not enough coins", 5, 7));
+					}
+					break;
+				case "SELL":
+					if (crops_1 >= 1) {
+						// 25 coins for one grown radish
+						coins += 25;
+						crops_1 -= 1;
+					} else {
+						// Inform user they have insufficient radishes
+						ui_non_interact.push(new Label("Not enough radishes", 5, 9));
+					}
 					break;
 			}
 		}
