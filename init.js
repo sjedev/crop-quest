@@ -22,6 +22,11 @@ async function fetch_JSON(file) {
 }
 
 function push_tiles(push_level) {
+	// Remove current tile objects
+	tiles_background = [];
+	tiles_foreground = [];
+	current_level = push_level;
+	
     // Iterate through tiles on the y-axis
     for (p = 0; p < level[push_level].height; p++) {
 

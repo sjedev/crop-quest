@@ -19,14 +19,24 @@ class Avatar {
 	move(direction){
 		switch (direction) {
 			case "LEFT":
+				// If the player is at the edge of the town and on the path
+				if (this.x === 0 && this.y < 12 && this.y > 7 && current_level === "town") {
+					push_tiles("farm");
+					this.x = level["farm"].start_x;
+					
 				// Checks tile to the left for collisions
-				if (tile[level[current_level].tiles[this.y][this.x - 1]].collisions === false) {
+				} else if (tile[level[current_level].tiles[this.y][this.x - 1]].collisions === false) {
 					this.x -= 1;
 				}
 				break;
 			case "RIGHT":
+				// If the player is at the edge of the farm and on the path
+				if (this.x === 23 && this.y < 12 && this.y > 7 && current_level === "farm") {
+					push_tiles("town");
+					this.x = level["town"].start_x;
+				
 				// Checks tile to the right for collisions
-				if (tile[level[current_level].tiles[this.y][this.x + 1]].collisions === false) {
+				} else if (tile[level[current_level].tiles[this.y][this.x + 1]].collisions === false) {
 					this.x += 1;
 				}
 				break;

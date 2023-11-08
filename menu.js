@@ -49,19 +49,19 @@ function push_ui(state) {
 class Title {
 	show() {
 		textSize(tile_size);
-    	textFont(title_font);
-    	textAlign(LEFT, BOTTOM);
-    	// If mouse pointer is hovering over the title
-    	if (mouseX > (margin_x + tile_size) && 
-        	mouseX < ((margin_x + tile_size) + (tile_size * 7) - 5) && 
-        	mouseY > (margin_y + (tile_size * 10) + 1) && 
-        	mouseY < (margin_y + (tile_size * 10) + tile_size - 2)) {
-      		fill(132, 198, 105);
-    	} else {
-      		fill(255);
-    	}
+		textFont(title_font);
+		textAlign(LEFT, BOTTOM);
+		// If mouse pointer is hovering over the title
+		if (mouseX > (margin_x + tile_size) && 
+			mouseX < ((margin_x + tile_size) + (tile_size * 7) - 5) && 
+			mouseY > (margin_y + (tile_size * 10) + 1) && 
+			mouseY < (margin_y + (tile_size * 10) + tile_size - 2)) {
+			fill(132, 198, 105);
+		} else {
+			fill(255);
+		}
 		// Display the title in the bottom left
-    	text("Crop Quest", (margin_x + tile_size), (margin_y + (tile_size * 11) + 12));
+		text("Crop Quest", (margin_x + tile_size), (margin_y + (tile_size * 11) + 12));
 	}
 }
 
@@ -71,20 +71,20 @@ class Overlay {
 	}
 
 	show() {
-    	noStroke();
-    	switch (this.type) {
-      		case "LTHIRD":
-        		// Lower third tinted overlay
-		        fill(0, 0, 0, 150);
-		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
-		        break;
-      		case "ALL_LTHIRD":
-		        // Full screen with darker lower third
-		        fill(0, 0, 0, 100);
-		        rect(margin_x, margin_y, (tile_size * tiles_x), ((tile_size * tiles_y) - (tile_size * 3)));
-		        fill(0, 0, 0, 150);
-		        rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
-		        break;
+		noStroke();
+		switch (this.type) {
+			case "LTHIRD":
+				// Lower third tinted overlay
+				fill(0, 0, 0, 150);
+				rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+				break;
+			case "ALL_LTHIRD":
+				// Full screen with darker lower third
+				fill(0, 0, 0, 100);
+				rect(margin_x, margin_y, (tile_size * tiles_x), ((tile_size * tiles_y) - (tile_size * 3)));
+				fill(0, 0, 0, 150);
+				rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+				break;
 			case "HUD":
 				// In-game backgrounds for stats and toolbar
 				fill(0, 0, 0, 100);
@@ -97,8 +97,8 @@ class Overlay {
 				// Bottom right for tool bar
 				rect(margin_x + (tile_size * 14.5), margin_y + ((tiles_y - 1) * tile_size), tile_size * 9.5, tile_size);
 				break;
-    	}
-  	}
+		}
+	}
 }
 
 class Button {
@@ -199,11 +199,11 @@ class Label {
 				fill(0, 0, 0);
 			}
 			text(String(health), this.x - (0.1 * tile_size), this.y);
-			
+
 		// Specific instructions for displaying icons
 		} else if (this.special === "ICON") {
 			image(spritesheet_tiles, this.x - (0.2 * tile_size), this.y - (0.06 * tile_size), tile_size, tile_size, this.spritesheet_x, this.spritesheet_y, 64, 64);
-			
+
 		// Specific instruction for displaying the toolbar
 		} else if (this.special === "TOOLS") {
 			// Bucket icon
@@ -227,29 +227,29 @@ class Label {
 
 			// Pickaxe icon
 			image(spritesheet_tiles, margin_x + (15 * tile_size), ((tiles_y - 1.5) * tile_size) + margin_y, tile_size, tile_size, 256, 512, 64, 64);
-			
-	    } else if (this.special === "COINS") {
+
+		} else if (this.special === "COINS") {
 			text(String(coins), this.x, this.y);
-			
+
 		} else if (this.special === "STONE") {
 			text(String(stone), this.x, this.y);
-			
+
 		} else if (this.special === "WOOD") {
 			text(String(wood), this.x, this.y);
-			
+
 		} else if (this.special === "SEEDS") {
 			text(String(seeds_1), this.x, this.y);
-			
+
 		} else if (this.special === "PRODUCE") {
 			text(String(crops_1), this.x, this.y);
-			
+
 		} else if (this.special === "SELECTED") {
 			text(String(tool), this.x, this.y);
 
 		} else if (this.special === "SELECTION") {
 			fill(132, 198, 105);
 			rect(margin_x + (tool_selected * ((tile_size / 2) + tile_size)) + (tile_size * 15), (margin_y + (tile_size * tiles_y)) - (tile_size / 4), tile_size, tile_size / 4);
-			
+
 		} else {
 			// Draw text
 			text(this.message, this.x, this.y);
