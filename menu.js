@@ -63,8 +63,17 @@ function push_ui(state) {
 			// Produce
 			ui_non_interact.push(new Label(" ", 12, 0, "ICON", 128, 576));
 			ui_non_interact.push(new Label(String(crops_1), 13, 0, "PRODUCE"));
+			// Shop labels
+			ui_non_interact.push(new Label("Shop", 5, 3));
+			ui_non_interact.push(new Label("Village Groceries 'n' Stuff", 8, 3));
+			ui_non_interact.push(new Label("Buy Radish Seeds", 5, 6));
+			ui_non_interact.push(new Label("15C", 12, 6));
+			ui_non_interact.push(new Label("Sell Radishes", 5, 8));
+			ui_non_interact.push(new Label("25C", 12, 8));
+			// Shop buttons
+			ui_interactable.push(new Button("START", 16, 6, 3));
+			ui_interactable.push(new Button("START", 16, 8, 3));
 			break;
-			
 	}
 }
 
