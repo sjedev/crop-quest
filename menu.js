@@ -44,10 +44,9 @@ function push_ui(state) {
 			ui_non_interact.push(new Label(" ", 0, 0, "SELECTION"))
 			break;
 		case "SHOP":
+			ui_fullscreen = true;
+			shop_open = true;
 			ui_non_interact.push(new Overlay("SHOP"));
-			// HP
-			ui_non_interact.push(new Label("HP", 22, 0));
-			ui_non_interact.push(new Label("0", 23, 0, "HP"));
 			// Coins
 			ui_non_interact.push(new Label(" ", 0, 0, "ICON", 320, 448));
 			ui_non_interact.push(new Label(String(coins), 1, 0, "COINS"));
