@@ -41,6 +41,9 @@ let ui_fullscreen;
 let shop_open = false;
 let ui_non_interact = new Array;
 let ui_interactable = new Array;
+let colour_background;
+let colour_foreground;
+const system_scheme = window.matchMedia("(prefers-color-scheme: dark)"); // System light/dark mode
 
 // Spritesheet locations
 let spritesheet_tiles;
