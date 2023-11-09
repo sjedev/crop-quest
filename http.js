@@ -6,13 +6,17 @@ function send() {
 		http.open("POST", "https://cqapi.sjedev.repl.co/api/data", true);
 		http.setRequestHeader('Content-Type', 'application/json');
 
-		// For the purposes of testing - send a custom message
-		let msg;
-		msg = window.prompt("Your message is");
+		// Compile a save code
+		// Pad start with leading zeros if necessary
+		let save_code_sent = String(coins).padStart(4, "0"); // Coins
+		save_code_sent += String(wood).padStart(2, "0"); // Wood
+		save_code_sent += String(stone).padStart(2, "0"); // Stone
+		save_code_sent += String(seeds_1).padStart(2, "0"); // Seeds
+		save_code_sent += String(crops_1).padStart(2, "0"); // Produce
 
-		// Send the contents (in an object) to the web server in the payload of a HTTP POST request
+		// Send the save code (in an object) to the web server in the payload of a HTTP POST request
 		http.send(JSON.stringify({
-			savecode: msg,
+			savecode: save_code_sent,
 			username: replit_user.id
 		}));
 	}
