@@ -22,7 +22,7 @@ let coins = 30;
 let wood = 0;
 let stone = 0;
 let tools = ["PICKAXE", "AXE", "SCYTHE", "HOE", "SEED", "BUCKET"];
-let tool_selected = 3;
+let tool_selected = 5;
 
 // Tile metadata
 let tile_size;
