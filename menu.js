@@ -73,6 +73,16 @@ function push_ui(state) {
 			ui_interactable.push(new Button("BUY", 16, 6, 3));
 			ui_interactable.push(new Button("SELL", 16, 8, 3));
 			break;
+		case "PAUSE":
+			ui_fullscreen = true;
+			ui_non_interact.push(new Overlay("PAUSE"));
+			ui_non_interact.push(new Title());
+			// Back button
+			ui_interactable.push(new Button("BACKTOGAME", 20, 10, 3));
+			// Left hand side labels
+			ui_non_interact.push(new Label("Exit", 1, 1));
+			// Left hand side buttons
+			ui_interactable.push(new Button("TOMENU", 1, 1, 4));
 	}
 }
 
@@ -134,6 +144,14 @@ class Overlay {
 				// Background for shop menu
 				rect(margin_x + (4 * tile_size), margin_y + (2 * tile_size), (tile_size * 16), (tile_size * 8));
 				break;
+			case "PAUSE":
+				// Lower third tinted overlay
+				fill(0, 0, 0, 150);
+				rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+				// Left-hand side slightly more transparent overlay
+				fill(0, 0, 0, 100);
+				rect(margin_x, margin_y, (tile_size * 6), (tile_size * 9));
+				break;
 		}
 	}
 }
@@ -168,6 +186,18 @@ class Button {
 				break;
 			case "OPTIONS":
 				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "BACKTOGAME":
+				text("Back", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "TOMENU":
+				text("Exit Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "GETSAVECODE":
+				text("Save Code", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "UPLOAD":
+				text("Cloud Save", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "LOAD":
 				if (loaded) {
@@ -231,6 +261,9 @@ class Button {
 						// Inform user they have insufficient radishes
 						ui_non_interact.push(new Label("Not enough radishes", 5, 9));
 					}
+					break;
+				case "BACKTOGAME":
+					push_ui("HUD");
 					break;
 			}
 		}

@@ -94,7 +94,7 @@ async function setup() {
     await fetch_JSON("resources/json/tile.json").then(data => {tile = data});
 
     push_tiles(current_level);
-	push_ui("MAINMENU");
+	push_ui("PAUSE");
 }
 
 // Draw tiles and graphics on canvas

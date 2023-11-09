@@ -44,15 +44,12 @@ function retrieve() {
 			crops_1 = Number(save_code_retrieved.savecode.substr(10,2)); // Crops
 
 			let save_code_tiles = save_code_retrieved.savecode.substr(12); // Separate tiles from rest of code
-			console.log(save_code_tiles);
 			let save_code_tiles_id = new Array; // Array for separated tiles
 
 			// Push each tile ID from save code into an array
 			for (let i = 0; i < save_code_tiles.length; i += 3) {
 				save_code_tiles_id.push(Number(save_code_tiles.substr(i, 3)));
 			}
-
-			console.log(save_code_tiles_id)
 			
 			// Set the farm tiles to the save data
 			for (let p = 0; p < level["farm"].height; p++) {
