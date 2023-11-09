@@ -36,6 +36,7 @@ let crops = new Array;
 // User interface
 let title_font, label_font;
 let logged_in = false;
+let loaded = false;
 let replit_user;
 let ui_fullscreen;
 let shop_open = false;

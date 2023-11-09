@@ -170,7 +170,9 @@ class Button {
 				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "LOAD":
-				if (logged_in) {
+				if (loaded) {
+					text("Done", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				} else if (logged_in) {
 					text("Load", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				} else {
 					text("Log in", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
@@ -193,11 +195,12 @@ class Button {
 			mouseY <= (this.y + tile_size)) {
 			switch (this.action) {
 				case "LOAD":
-					if (logged_in) {
+					if (logged_in && !loaded) {
 						// Load the save from the server
-						push_ui("CLEAR");
+						retrieve();
+						loaded = true;
 						break;
-					} else {
+					} else if (!logged_in) {
 						// Bring up log-in prompt if not logged in already
 						LoginWithReplit();
 						logged_in = true;
