@@ -41,6 +41,9 @@ let ui_fullscreen;
 let shop_open = false;
 let ui_non_interact = new Array;
 let ui_interactable = new Array;
+let colour_background;
+let colour_foreground;
+const system_scheme = window.matchMedia("(prefers-color-scheme: dark)"); // System light/dark mode
 
 // Spritesheet locations
 let spritesheet_tiles;
@@ -67,8 +70,9 @@ function preload() {
 async function setup() {
     createCanvas(windowWidth, windowHeight);
     tile_size_setup();
-
-    background(255);
+	colour_scheme();
+	
+	background(colour_background);
 
     // Create player
     user = new Avatar(19, 5);
@@ -94,7 +98,7 @@ async function setup() {
 
 // Draw tiles and graphics on canvas
 function draw() {
-	background(255);
+	background(colour_background);
 	
     // Draw background tiles
     for (i in tiles_background) {

@@ -48,3 +48,16 @@ function push_tiles(push_level) {
         }
     }
 }
+
+function colour_scheme() {
+	// If dark colour scheme is enabled
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		// Dark background and light foreground
+		colour_background = color("#3C3C3C");
+		colour_foreground = 255;
+  	} else {
+		// If light mode, light background and dark foreground
+		colour_background = 255;
+		colour_foreground = color("#1A1A1A");
+  	}
+}
