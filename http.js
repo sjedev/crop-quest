@@ -28,8 +28,12 @@ function retrieve() {
 	fetch(api_url)
 		.then(response => response.json())
 		.then(save_code_retrieved => {
-			// Get data
-			console.log(save_code_retrieved.savecode);
+			// Update client-side data
+			coins = Number(save_code_retrieved.savecode.substr(0,4)); // Coins
+			wood = Number(save_code_retrieved.savecode.substr(4,2)); // Wood
+			stone = Number(save_code_retrieved.savecode.substr(6,2)); // Stone
+			seeds_1 = Number(save_code_retrieved.savecode.substr(8,2)); // Seeds
+			crops_1 = Number(save_code_retrieved.savecode.substr(10,2)); // Crops
 		})
 		.catch(error => {
 			// Throws errors accordingly
