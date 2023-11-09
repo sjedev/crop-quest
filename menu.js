@@ -79,10 +79,9 @@ function push_ui(state) {
 			ui_non_interact.push(new Title());
 			// Back button
 			ui_interactable.push(new Button("BACKTOGAME", 20, 10, 3));
-			// Left hand side labels
-			ui_non_interact.push(new Label("Exit", 1, 1));
 			// Left hand side buttons
 			ui_interactable.push(new Button("TOMENU", 1, 1, 4));
+			ui_interactable.push(new Button("UPLOAD", 1, 3, 4));
 	}
 }
 
@@ -170,8 +169,16 @@ class Button {
 			mouseX <= (this.x + this.length) &&
 			mouseY >= this.y &&
 			mouseY <= (this.y + tile_size)) {
-			fill(132, 198, 105);
 			cursor("pointer");
+			if (this.action === "UPLOAD") {
+				// Extra warning about overwriting data when going to upload to cloud
+				fill(255, 255, 255);
+				textAlign(LEFT, TOP);
+				textSize(Math.floor(0.65 * tile_size));
+				textFont(button_font);
+				text("This will\noverwrite\nexisting\ndata", this.x, this.y + (tile_size * 1.2));
+			}
+			fill(132, 198, 105);
 		} else {
 			fill(255);
 		}
@@ -193,11 +200,8 @@ class Button {
 			case "TOMENU":
 				text("Exit Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
-			case "GETSAVECODE":
-				text("Save Code", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
-				break;
 			case "UPLOAD":
-				text("Cloud Save", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				text("Save Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "LOAD":
 				if (loaded) {
@@ -264,6 +268,12 @@ class Button {
 					break;
 				case "BACKTOGAME":
 					push_ui("HUD");
+					break;
+				case "TOMENU":
+					push_ui("MAINMENU");
+					break;
+				case "UPLOAD":
+					send();
 					break;
 			}
 		}

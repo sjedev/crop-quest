@@ -94,7 +94,7 @@ async function setup() {
     await fetch_JSON("resources/json/tile.json").then(data => {tile = data});
 
     push_tiles(current_level);
-	push_ui("PAUSE");
+	push_ui("MAINMENU");
 }
 
 // Draw tiles and graphics on canvas
@@ -136,6 +136,10 @@ function keyPressed() {
 	// Player movement, only when there is no fullscreen UI
 	if (!ui_fullscreen) {
 		switch (keyCode) {
+			// Open pause menu with escape key
+			case 27:
+				push_ui("PAUSE");
+				break;
 			case 65:
 				user.move("LEFT");
 				break;
