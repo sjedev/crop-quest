@@ -11,7 +11,7 @@ let tile, level;
 let user;
 let current_level = "farm";
 let user_onscreen = false;
-let tool = "HOE";
+let tool = "BUCKET";
 let in_range = false;
 let bucket_filled = false;
 let seed_selected = 1;
@@ -22,7 +22,7 @@ let coins = 30;
 let wood = 0;
 let stone = 0;
 let tools = ["PICKAXE", "AXE", "SCYTHE", "HOE", "SEED", "BUCKET"];
-let tool_selected = 3;
+let tool_selected = 5;
 
 // Tile metadata
 let tile_size;
@@ -36,6 +36,8 @@ let crops = new Array;
 // User interface
 let title_font, label_font;
 let logged_in = false;
+let loaded = false;
+let saved = false;
 let replit_user;
 let ui_fullscreen;
 let shop_open = false;
@@ -135,6 +137,10 @@ function keyPressed() {
 	// Player movement, only when there is no fullscreen UI
 	if (!ui_fullscreen) {
 		switch (keyCode) {
+			// Open pause menu with escape key
+			case 27:
+				push_ui("PAUSE");
+				break;
 			case 65:
 				user.move("LEFT");
 				break;

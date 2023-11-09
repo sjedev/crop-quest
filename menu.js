@@ -9,6 +9,7 @@ function push_ui(state) {
 		case "MAINMENU":
 			// Lower third overlay with title and buttons
 			ui_fullscreen = true;
+			loaded = false;
 			ui_non_interact.push(new Overlay("LTHIRD"));
 			// "Crop Quest" logo
 			ui_non_interact.push(new Title());
@@ -73,6 +74,16 @@ function push_ui(state) {
 			ui_interactable.push(new Button("BUY", 16, 6, 3));
 			ui_interactable.push(new Button("SELL", 16, 8, 3));
 			break;
+		case "PAUSE":
+			saved = false;
+			ui_fullscreen = true;
+			ui_non_interact.push(new Overlay("PAUSE"));
+			ui_non_interact.push(new Title());
+			// Back button
+			ui_interactable.push(new Button("BACKTOGAME", 20, 10, 3));
+			// Left hand side buttons
+			ui_interactable.push(new Button("TOMENU", 1, 1, 4));
+			ui_interactable.push(new Button("UPLOAD", 1, 3, 4));
 	}
 }
 
@@ -134,6 +145,14 @@ class Overlay {
 				// Background for shop menu
 				rect(margin_x + (4 * tile_size), margin_y + (2 * tile_size), (tile_size * 16), (tile_size * 8));
 				break;
+			case "PAUSE":
+				// Lower third tinted overlay
+				fill(0, 0, 0, 150);
+				rect(margin_x, (margin_y + (tile_size * 9)), (tile_size * tiles_x), (tile_size * 3));
+				// Left-hand side slightly more transparent overlay
+				fill(0, 0, 0, 100);
+				rect(margin_x, margin_y, (tile_size * 6), (tile_size * 9));
+				break;
 		}
 	}
 }
@@ -152,8 +171,16 @@ class Button {
 			mouseX <= (this.x + this.length) &&
 			mouseY >= this.y &&
 			mouseY <= (this.y + tile_size)) {
-			fill(132, 198, 105);
 			cursor("pointer");
+			if (this.action === "UPLOAD") {
+				// Extra warning about overwriting data when going to upload to cloud
+				fill(255, 255, 255);
+				textAlign(LEFT, TOP);
+				textSize(Math.floor(0.65 * tile_size));
+				textFont(button_font);
+				text("This will\noverwrite\nexisting\ndata", this.x, this.y + (tile_size * 1.2));
+			}
+			fill(132, 198, 105);
 		} else {
 			fill(255);
 		}
@@ -164,13 +191,28 @@ class Button {
 		textAlign(CENTER, TOP);
 		switch (this.action) {
 			case "START":
-				text("New game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				text("Start game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "OPTIONS":
 				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
+			case "BACKTOGAME":
+				text("Back", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "TOMENU":
+				text("Exit Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				break;
+			case "UPLOAD":
+				if (saved) {
+					text("Done", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				} else {
+					text("Save Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				}
+				break;
 			case "LOAD":
-				if (logged_in) {
+				if (loaded) {
+					text("Done", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				} else if (logged_in) {
 					text("Load", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				} else {
 					text("Log in", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
@@ -193,11 +235,12 @@ class Button {
 			mouseY <= (this.y + tile_size)) {
 			switch (this.action) {
 				case "LOAD":
-					if (logged_in) {
+					if (logged_in && !loaded) {
 						// Load the save from the server
-						push_ui("CLEAR");
+						retrieve();
+						loaded = true;
 						break;
-					} else {
+					} else if (!logged_in) {
 						// Bring up log-in prompt if not logged in already
 						LoginWithReplit();
 						logged_in = true;
@@ -228,6 +271,16 @@ class Button {
 						// Inform user they have insufficient radishes
 						ui_non_interact.push(new Label("Not enough radishes", 5, 9));
 					}
+					break;
+				case "BACKTOGAME":
+					push_ui("HUD");
+					break;
+				case "TOMENU":
+					push_ui("MAINMENU");
+					break;
+				case "UPLOAD":
+					send();
+					saved = true;
 					break;
 			}
 		}
