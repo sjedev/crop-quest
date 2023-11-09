@@ -9,6 +9,7 @@ function push_ui(state) {
 		case "MAINMENU":
 			// Lower third overlay with title and buttons
 			ui_fullscreen = true;
+			loaded = false;
 			ui_non_interact.push(new Overlay("LTHIRD"));
 			// "Crop Quest" logo
 			ui_non_interact.push(new Title());
@@ -74,6 +75,7 @@ function push_ui(state) {
 			ui_interactable.push(new Button("SELL", 16, 8, 3));
 			break;
 		case "PAUSE":
+			saved = false;
 			ui_fullscreen = true;
 			ui_non_interact.push(new Overlay("PAUSE"));
 			ui_non_interact.push(new Title());
@@ -201,7 +203,11 @@ class Button {
 				text("Exit Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "UPLOAD":
-				text("Save Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				if (saved) {
+					text("Done", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				} else {
+					text("Save Game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				}
 				break;
 			case "LOAD":
 				if (loaded) {
@@ -274,6 +280,7 @@ class Button {
 					break;
 				case "UPLOAD":
 					send();
+					saved = true;
 					break;
 			}
 		}
