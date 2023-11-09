@@ -70,8 +70,9 @@ function preload() {
 async function setup() {
     createCanvas(windowWidth, windowHeight);
     tile_size_setup();
-
-    background(255);
+	colour_scheme();
+	
+	background(colour_background);
 
     // Create player
     user = new Avatar(19, 5);
@@ -97,7 +98,7 @@ async function setup() {
 
 // Draw tiles and graphics on canvas
 function draw() {
-	background(255);
+	background(colour_background);
 	
     // Draw background tiles
     for (i in tiles_background) {
