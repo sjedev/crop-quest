@@ -14,6 +14,14 @@ function send() {
 		save_code_sent += String(seeds_1).padStart(2, "0"); // Seeds
 		save_code_sent += String(crops_1).padStart(2, "0"); // Produce
 
+		// Add tiles from the farm
+		for (p = 0; p < level["farm"].height; p++) {
+			// Iterate through tiles on the x-axis
+			for (q = 0; q < level["farm"].width; q++) {
+				save_code_sent += String(level["farm"].tiles[p][q]).padStart(3, "0"); // Farm tile
+			}
+		}
+
 		// Send the save code (in an object) to the web server in the payload of a HTTP POST request
 		http.send(JSON.stringify({
 			savecode: save_code_sent,
@@ -34,6 +42,27 @@ function retrieve() {
 			stone = Number(save_code_retrieved.savecode.substr(6,2)); // Stone
 			seeds_1 = Number(save_code_retrieved.savecode.substr(8,2)); // Seeds
 			crops_1 = Number(save_code_retrieved.savecode.substr(10,2)); // Crops
+
+			let save_code_tiles = save_code_retrieved.savecode.substr(12); // Separate tiles from rest of code
+			console.log(save_code_tiles);
+			let save_code_tiles_id = new Array; // Array for separated tiles
+
+			// Push each tile ID from save code into an array
+			for (let i = 0; i < save_code_tiles.length; i += 3) {
+				save_code_tiles_id.push(Number(save_code_tiles.substr(i, 3)));
+			}
+
+			console.log(save_code_tiles_id)
+			
+			// Set the farm tiles to the save data
+			for (let p = 0; p < level["farm"].height; p++) {
+				for (let q = 0; q < level["farm"].width; q++) {
+					level["farm"].tiles[p][q] = save_code_tiles_id[(p * 24) + q];
+				}
+			}
+
+			// Update farm map
+			push_tiles("farm");
 		})
 		.catch(error => {
 			// Throws errors accordingly
