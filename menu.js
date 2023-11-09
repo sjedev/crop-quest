@@ -191,7 +191,7 @@ class Button {
 		textAlign(CENTER, TOP);
 		switch (this.action) {
 			case "START":
-				text("New game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
+				text("Start game", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
 				break;
 			case "OPTIONS":
 				text("More", (this.x + (this.length / 2)), this.y + 0.04 * tile_size);
